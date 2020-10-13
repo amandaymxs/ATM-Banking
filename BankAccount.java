@@ -42,6 +42,9 @@ public class BankAccount {
 			balance += num;
 			System.out.printf("Withdrawal of $%.2f", num); 
 			System.out.println(" is completed.");
+			previousTransaction[counter] = num;
+			previousTransactionDetails[counter] = "Withdrawal";
+			previousBalance[counter++] = balance;
 		}
 	}
 
@@ -53,6 +56,9 @@ public class BankAccount {
 			balance += num;
 			System.out.printf("Deposit of $%.2f", num); 
 			System.out.println(" is completed.");
+			previousTransaction[counter] = num;
+			previousTransactionDetails[counter] = "Deposit";
+			previousBalance[counter++] = balance;
 		}
 	}
 
@@ -97,9 +103,11 @@ public class BankAccount {
 			System.out.println("No previous transactions available.");
 		} else {
 			System.out.println(customerName + " (" + customerID + ").");
-			System.out.println(previousTransactionDetails[counter - 1] + "\t");
-			System.out.printf("$%.2f", previousTransaction[counter - 1] + "\t");
-			System.out.printf("$%.2f", previousBalance[counter - 1] + "\n");
+			System.out.print(previousTransactionDetails[counter - 1] + "\t");
+			System.out.printf("$%.2f", previousTransaction[counter - 1]);
+			System.out.print("\t");
+			System.out.printf("$%.2f", previousBalance[counter - 1]);
+			System.out.println();
 		}
 	}
 
@@ -110,9 +118,12 @@ public class BankAccount {
 			System.out.println(customerName + " (" + customerID + ").");
 			System.out.println("Previous Transactions Newest to Oldest");
 			for (int i = counter; i > (counter - 10); i--) {
-				System.out.printf("$%2f", previousTransactionDetails[i] + "\t");
-				System.out.printf("$%.2f", previousTransaction[i] +	"\t");
-				System.out.printf("$%.2f", previousBalance[i] + "\n");
+				System.out.printf("$%2f", previousTransactionDetails[i]);
+				System.out.print("\t");
+				System.out.printf("$%.2f", previousTransaction[i]);
+				System.out.print("\t");
+				System.out.printf("$%.2f", previousBalance[i]);
+				System.out.println();
 			}
 		}
 	}
