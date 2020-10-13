@@ -103,7 +103,7 @@ public class BankAccount {
 			System.out.println("No previous transactions available.");
 		} else {
 			System.out.println("\nTransaction Details\tAmount\tBalance");
-			System.out.printf(previousTransactionDetails[counter - 1] + "\t\t\t$%.2f\t$%.2f\n",
+			System.out.printf(previousTransactionDetails[counter - 1] + "\t\t\t$ %.2f\t$ %.2f\n",
 					previousTransaction[counter - 1], previousBalance[counter - 1]);
 		}
 	}
@@ -115,16 +115,16 @@ public class BankAccount {
 		} else if (counter < 10){
 				System.out.println("Previous Transactions Newest to Oldest");
 				System.out.println("\nTransaction Details\tAmount\tBalance");
-				for (int i = counter; i >= 0; i--) {
-					System.out.printf(previousTransactionDetails[i] + "\t\t\t$%.2f\t$%.2f\n",
+				for (int i = counter-1; i >= 0; i--) {
+					System.out.printf(previousTransactionDetails[i] + "\t\t\t$ %.2f\t$ %.2f\n",
 							previousTransaction[i], previousBalance[i]);
 
 				}
 			} else {
 			System.out.println("Previous Transactions Newest to Oldest");
 			System.out.println("\nTransaction Details\tAmount\tBalance");
-			for (int i = counter; i > (counter - 10); i--) {
-				System.out.printf(previousTransactionDetails[i] + "\t\t\t$%.2f\t$%.2f\n",
+			for (int i = counter-1; i > (counter - 10); i--) {
+				System.out.printf(previousTransactionDetails[i] + "\t\t\t$ %.2f\t$ %.2f\n",
 						previousTransaction[i], previousBalance[i]);
 
 			}
