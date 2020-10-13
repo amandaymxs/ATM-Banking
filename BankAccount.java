@@ -21,10 +21,9 @@ public class BankAccount {
 		this.customerID = "M00000";
 	}
 
-	public BankAccount(double balance, String customerName, String customerID) {
+	public BankAccount(double balance, String customerName) {
 		this.balance = balance;
-		this.customerName = customerName;
-		this.customerID = customerID;
+		setCustomerName(customerName);
 	}
 
 	/*---------------------------------------------------------------------------------------------
