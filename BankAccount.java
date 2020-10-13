@@ -115,7 +115,19 @@ public class BankAccount {
 	public void printTenPreviousTransactions() {
 		if (counter == 0) {
 			System.out.println("No previous transactions available.");
-		} else {
+		} else if (counter < 10){
+				System.out.println(customerName + " (" + customerID + ").");
+				System.out.println("Previous Transactions Newest to Oldest");
+				System.out.println("\nTransaction Details\tAmount\tBalance");
+				for (int i = counter; i >= 0; i--) {
+					System.out.printf("$%2f", previousTransactionDetails[i]);
+					System.out.print("\t\t\t");
+					System.out.printf("$%.2f", previousTransaction[i]);
+					System.out.print("\t");
+					System.out.printf("$%.2f", previousBalance[i]);
+					System.out.println();
+				}
+			} else {
 			System.out.println(customerName + " (" + customerID + ").");
 			System.out.println("Previous Transactions Newest to Oldest");
 			System.out.println("\nTransaction Details\tAmount\tBalance");
