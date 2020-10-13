@@ -16,7 +16,7 @@ public class BankAccount {
 	* Default Constructor
 	---------------------------------------------------------------------------------------------*/
 	public BankAccount(double balance, String customerName, String customerID) {
-		this.balance = 0;
+		this.balance = 0.00;
 		this.customerName = "Mickey";
 		this.customerID = "M00000";
 	}
@@ -79,12 +79,14 @@ public class BankAccount {
 	 * Print
 	 ----------------------------------------------------------------------------------------*/
 	public void printPreviousTransactions() {
+		System.out.println(customerName + " (" + customerID + ").");
 		System.out.println(previousTransactionDetails[counter-1]
 				+ "\t" + previousTransaction[counter-1] + "\t"
 				+ previousBalance[counter-1]);
 	}
 	
 	public void printTenPreviousTransactions() {
+		System.out.println(customerName + " (" + customerID + ").");
 		System.out.println("Previous Transactions Newest to Oldest");
 		for(int i = counter; i > (counter - 10); i--) {
 			System.out.println(previousTransactionDetails[i]
