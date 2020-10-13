@@ -11,6 +11,7 @@ public class BankAccount {
 	private double[] previousBalance = new double[size];
 	Random random = new Random();
 	int counter = 0;
+	int idNum;
 
 	/*---------------------------------------------------------------------------------------------
 	* Default Constructor and Constructors
@@ -70,7 +71,9 @@ public class BankAccount {
 	}
 
 	private void setCustomerID(String customerName) {
-		this.customerID = customerName.substring(0) + random.nextInt(100000);
+		idNum = random.nextInt(100000);
+		String stringIDNum = Integer.toString(idNum);
+		this.customerID = customerName.charAt(0) + stringIDNum;
 	}
 
 	/*---------------------------------------------------------------------------------
