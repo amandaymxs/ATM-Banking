@@ -103,7 +103,8 @@ public class BankAccount {
 			System.out.println("No previous transactions available.");
 		} else {
 			System.out.println(customerName + " (" + customerID + ").");
-			System.out.print(previousTransactionDetails[counter - 1] + "\t");
+			System.out.println("\nTransaction Details\tAmount\tBalance");
+			System.out.print(previousTransactionDetails[counter - 1] + "\t\t\t");
 			System.out.printf("$%.2f", previousTransaction[counter - 1]);
 			System.out.print("\t");
 			System.out.printf("$%.2f", previousBalance[counter - 1]);
@@ -117,9 +118,10 @@ public class BankAccount {
 		} else {
 			System.out.println(customerName + " (" + customerID + ").");
 			System.out.println("Previous Transactions Newest to Oldest");
+			System.out.println("\nTransaction Details\tAmount\tBalance");
 			for (int i = counter; i > (counter - 10); i--) {
 				System.out.printf("$%2f", previousTransactionDetails[i]);
-				System.out.print("\t");
+				System.out.print("\t\t\t");
 				System.out.printf("$%.2f", previousTransaction[i]);
 				System.out.print("\t");
 				System.out.printf("$%.2f", previousBalance[i]);
