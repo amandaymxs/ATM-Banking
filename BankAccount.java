@@ -17,7 +17,7 @@ public class BankAccount {
 	---------------------------------------------------------------------------------------------*/
 	public BankAccount() {
 		this.balance = 0.00;
-		this.customerName = "Mickey";
+		this.customerName = "MICKEY";
 		this.customerID = "M00000";
 	}
 
@@ -93,8 +93,7 @@ public class BankAccount {
 	 * Print
 	 ----------------------------------------------------------------------------------------*/
 	public void printBalance() {
-		System.out.printf("Your current balance is $%.2f", balance);
-		System.out.println(".");
+		System.out.printf("Your current balance is $%.2f.\n", balance);
 	}
 		
 	public void printPreviousTransactions() {
@@ -104,11 +103,8 @@ public class BankAccount {
 			System.out.println("No previous transactions available.");
 		} else {
 			System.out.println("\nTransaction Details\tAmount\tBalance");
-			System.out.print(previousTransactionDetails[counter - 1] + "\t\t\t");
-			System.out.printf("$%.2f", previousTransaction[counter - 1]);
-			System.out.print("\t");
-			System.out.printf("$%.2f", previousBalance[counter - 1]);
-			System.out.println();
+			System.out.printf(previousTransactionDetails[counter - 1] + "\t\t\t$%.2f\t$%.2f\n",
+					previousTransaction[counter - 1], previousBalance[counter - 1]);
 		}
 	}
 
@@ -120,21 +116,17 @@ public class BankAccount {
 				System.out.println("Previous Transactions Newest to Oldest");
 				System.out.println("\nTransaction Details\tAmount\tBalance");
 				for (int i = counter; i >= 0; i--) {
-					System.out.print(previousTransactionDetails[i] + "\t\t\t");
-					System.out.printf("$%.2f", previousTransaction[i]);
-					System.out.print("\t");
-					System.out.printf("$%.2f", previousBalance[i]);
-					System.out.println();
+					System.out.printf(previousTransactionDetails[i] + "\t\t\t$%.2f\t$%.2f\n",
+							previousTransaction[i], previousBalance[i]);
+
 				}
 			} else {
 			System.out.println("Previous Transactions Newest to Oldest");
 			System.out.println("\nTransaction Details\tAmount\tBalance");
 			for (int i = counter; i > (counter - 10); i--) {
-				System.out.print(previousTransactionDetails[i] + "\t\t\t");
-				System.out.printf("$%.2f", previousTransaction[i]);
-				System.out.print("\t");
-				System.out.printf("$%.2f", previousBalance[i]);
-				System.out.println();
+				System.out.printf(previousTransactionDetails[i] + "\t\t\t$%.2f\t$%.2f\n",
+						previousTransaction[i], previousBalance[i]);
+
 			}
 		}
 	}
