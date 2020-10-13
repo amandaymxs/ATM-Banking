@@ -99,10 +99,11 @@ public class BankAccount {
 	}
 		
 	public void printPreviousTransactions() {
+		System.out.println("\n" + customerName + " (" + customerID + ").");
+
 		if (counter == 0) {
 			System.out.println("No previous transactions available.");
 		} else {
-			System.out.println(customerName + " (" + customerID + ").");
 			System.out.println("\nTransaction Details\tAmount\tBalance");
 			System.out.print(previousTransactionDetails[counter - 1] + "\t\t\t");
 			System.out.printf("$%.2f", previousTransaction[counter - 1]);
@@ -113,27 +114,24 @@ public class BankAccount {
 	}
 
 	public void printTenPreviousTransactions() {
+		System.out.println("\n" + customerName + " (" + customerID + ").");
 		if (counter == 0) {
 			System.out.println("No previous transactions available.");
 		} else if (counter < 10){
-				System.out.println(customerName + " (" + customerID + ").");
 				System.out.println("Previous Transactions Newest to Oldest");
 				System.out.println("\nTransaction Details\tAmount\tBalance");
 				for (int i = counter; i >= 0; i--) {
-					System.out.printf("$%2f", previousTransactionDetails[i]);
-					System.out.print("\t\t\t");
+					System.out.print(previousTransactionDetails[i] + "\t\t\t");
 					System.out.printf("$%.2f", previousTransaction[i]);
 					System.out.print("\t");
 					System.out.printf("$%.2f", previousBalance[i]);
 					System.out.println();
 				}
 			} else {
-			System.out.println(customerName + " (" + customerID + ").");
 			System.out.println("Previous Transactions Newest to Oldest");
 			System.out.println("\nTransaction Details\tAmount\tBalance");
 			for (int i = counter; i > (counter - 10); i--) {
-				System.out.printf("$%2f", previousTransactionDetails[i]);
-				System.out.print("\t\t\t");
+				System.out.print(previousTransactionDetails[i] + "\t\t\t");
 				System.out.printf("$%.2f", previousTransaction[i]);
 				System.out.print("\t");
 				System.out.printf("$%.2f", previousBalance[i]);
