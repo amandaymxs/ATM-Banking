@@ -40,7 +40,7 @@ public class BankAccount {
 		}
 	}
 	
-	public int getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 	
@@ -79,5 +79,6 @@ public class BankAccount {
 	public void exitTransaction() {
 		System.out.println(customerName + " (" + customerID +
 				") has successfully exited transaction.");
+		System.exit(0);
 	}
 }
