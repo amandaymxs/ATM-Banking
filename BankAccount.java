@@ -32,24 +32,27 @@ public class BankAccount {
 	 ---------------------------------------------------------------------------------------------*/
 	public void withdrawal(double num) {
 		verifyArraySize();
-		num = Math.round(num * 100) / 100; // round to two decimal places
 		if (num > 0) {
 			System.out.println("Error 10005: Enter a negative amount.");
 		} else if ((-num) > balance) {
-			System.out.println("Error: 10007: Your account balance cannot be negative."
-					+ "Your withdrawal cannot exceed " + balance + ".");
+			System.out.printf("Error: 10007: Your account balance cannot be negative."
+					+ "Your withdrawal cannot exceed $%.2f", balance);
+			System.out.println(".");
 		} else {
 			balance += num;
+			System.out.printf("Withdrawal of $%.2f", num); 
+			System.out.println(" is completed.");
 		}
 	}
 
 	public void deposit(double num) {
 		verifyArraySize();
-		num = Math.round(num * 100) / 100; // round to two decimal places
 		if (num < 0) {
 			System.out.println("Error 10006: Enter a positive amount.");
 		} else {
 			balance += num;
+			System.out.printf("Deposit of $%.2f", num); 
+			System.out.println(" is completed.");
 		}
 	}
 
@@ -61,7 +64,7 @@ public class BankAccount {
 		setCustomerID(this.customerName); // Auto generates customerID
 	}
 
-	public void setCustomerID(String customerName) {
+	private void setCustomerID(String customerName) {
 		this.customerID = customerName.substring(0) + random.nextInt(100000);
 	}
 
@@ -84,13 +87,19 @@ public class BankAccount {
 	/*---------------------------------------------------------------------------------------
 	 * Print
 	 ----------------------------------------------------------------------------------------*/
+	public void printBalance() {
+		System.out.printf("Your current balance is $%.2f", balance);
+		System.out.println(".");
+	}
+		
 	public void printPreviousTransactions() {
 		if (counter == 0) {
 			System.out.println("No previous transactions available.");
 		} else {
 			System.out.println(customerName + " (" + customerID + ").");
-			System.out.println(previousTransactionDetails[counter - 1] + "\t" + previousTransaction[counter - 1] + "\t"
-					+ previousBalance[counter - 1]);
+			System.out.println(previousTransactionDetails[counter - 1] + "\t");
+			System.out.printf("$%.2f", previousTransaction[counter - 1] + "\t");
+			System.out.printf("$%.2f", previousBalance[counter - 1] + "\n");
 		}
 	}
 
@@ -101,8 +110,9 @@ public class BankAccount {
 			System.out.println(customerName + " (" + customerID + ").");
 			System.out.println("Previous Transactions Newest to Oldest");
 			for (int i = counter; i > (counter - 10); i--) {
-				System.out.println(
-						previousTransactionDetails[i] + "\t" + previousTransaction[i] + "\t" + previousBalance[i]);
+				System.out.printf("$%2f", previousTransactionDetails[i] + "\t");
+				System.out.printf("$%.2f", previousTransaction[i] +	"\t");
+				System.out.printf("$%.2f", previousBalance[i] + "\n");
 			}
 		}
 	}
@@ -112,13 +122,15 @@ public class BankAccount {
 	 ------------------------------------------------------------------------------------------*/
 	public void verifyArraySize() {
 		if (counter == size) {
-			System.out.println("Error 30000: Transaction limit exceeded." + " Transaction unsuccessful.");
+			System.out.println(" Transaction unsuccessful.");
+			System.out.println("Error 30000: Transaction limit exceeded.");
 			System.exit(0);
 		}
 	}
 
 	public void exitTransaction() {
-		System.out.println(customerName + " (" + customerID + ") has successfully exited transaction.");
+		System.out.println(customerName + " (" + customerID +
+				") has successfully exited transaction.");
 		System.exit(0);
 	}
 }
